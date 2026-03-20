@@ -1,0 +1,16 @@
+{
+  "name": "StromApp – Stromverbrauchs-Prognose",
+  "short_name": "StromApp",
+  "description": "Haushaltsstromverbrauch erfassen, analysieren und vorhersagen",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "theme_color": "#1c4151",
+  "background_color": "#f2f4ed",
+  "icons": [
+    { "src": "./icons/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "./icons/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "./icons/icon-180.png", "sizes": "180x180", "type": "image/png" }
+  ]
+}
