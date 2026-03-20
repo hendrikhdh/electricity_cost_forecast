@@ -59,8 +59,8 @@ function useTheme(dark) {
 // ============================================================
 function useStyles(th, dark) {
   return useMemo(() => ({
-    app: { fontFamily:"'DM Sans',system-ui,sans-serif", background:th.bg, color:th.text, minHeight:"100vh", maxWidth:430, margin:"0 auto", position:"relative", paddingBottom:"calc(96px + env(safe-area-inset-bottom,20px))", overflowX:"hidden", width:"100%" },
-    header: { padding:"16px 16px 10px", display:"flex", alignItems:"center", justifyContent:"space-between", position:"sticky", top:0, zIndex:30, background:dark?"rgba(11,18,22,0.88)":"rgba(242,244,237,0.88)", backdropFilter:"blur(24px) saturate(180%)" },
+    app: { fontFamily:"'DM Sans',system-ui,sans-serif", background:th.bg, color:th.text, minHeight:"100dvh", maxWidth:430, margin:"0 auto", position:"relative", paddingTop:"env(safe-area-inset-top, 0px)", paddingBottom:"calc(96px + env(safe-area-inset-bottom,20px))", paddingLeft:"env(safe-area-inset-left, 0px)", paddingRight:"env(safe-area-inset-right, 0px)", overflowX:"hidden", width:"100%" },
+    header: { padding:"12px 16px 10px", paddingTop:"calc(12px + env(safe-area-inset-top, 0px))", display:"flex", alignItems:"center", justifyContent:"space-between", position:"sticky", top:0, zIndex:30, background:dark?"rgba(11,18,22,0.92)":"rgba(242,244,237,0.92)", backdropFilter:"blur(24px) saturate(180%)" },
     page: { padding:"0 16px 24px", maxWidth:"100%", overflowX:"hidden" },
     tabBar: { position:"fixed", bottom:0, left:"50%", transform:"translateX(-50%)", width:"100%", maxWidth:430, zIndex:50, padding:"10px 12px", paddingBottom:"calc(10px + env(safe-area-inset-bottom,20px))", background:dark?"rgba(11,18,22,0.85)":"rgba(255,255,255,0.85)", backdropFilter:"blur(28px) saturate(200%)", borderTop:`0.5px solid ${th.brd}`, boxSizing:"border-box" },
     tabPill: { display:"flex", background:dark?"rgba(30,51,64,0.5)":"rgba(212,219,208,0.45)", borderRadius:16, padding:4, gap:4 },
@@ -244,7 +244,9 @@ export default function StromApp() {
   const globalCSS = `
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
     *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;margin:0;}
-    html,body{margin:0;padding:0;background:${th.bg};overscroll-behavior:none;overflow-x:hidden;}
+    html{height:100%;-webkit-text-size-adjust:100%;}
+    body{margin:0;padding:0;background:${th.bg};overscroll-behavior:none;overflow-x:hidden;min-height:100dvh;min-height:-webkit-fill-available;}
+    #root{min-height:100dvh;min-height:-webkit-fill-available;}
     input:focus,select:focus{border-color:${th.accent}!important;box-shadow:0 0 0 3px ${th.accent}25!important;}
     input[type="date"]::-webkit-calendar-picker-indicator{filter:${dark?"invert(0.8)":"none"};}
     ::-webkit-scrollbar{width:0;}
